@@ -30,5 +30,5 @@ steps:
     archiveFile: "$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
     name: 'drop'
