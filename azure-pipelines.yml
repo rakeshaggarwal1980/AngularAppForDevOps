@@ -22,7 +22,13 @@ steps:
     echo $(System.ArtifactsDirectory)
   displayName: 'npm install and build'
 
-- task: CopyFiles@2
+- task: ArchiveFiles@2
+  displayName: "Archive files"
   inputs:
-    contents: dist\**
-    targetFolder: $(Build.ArtifactStagingDirectory)
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    name: 'drop'
