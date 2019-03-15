@@ -23,7 +23,10 @@ pipeline
         stage('docker build')
         {
             steps{
-                sh 'docker image build -t my-angular-app .'
+                dir('WebApp')
+                {
+                    sh 'docker image build -t my-angular-app .'
+                }
             }
             post{
                 sh 'docker image ls'
