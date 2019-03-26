@@ -1,9 +1,7 @@
 
 pipeline
 {
-    agent{
-        label : Jenkins1
-    }
+    agent any
     stages{
 
         stage ('Cloning git'){
