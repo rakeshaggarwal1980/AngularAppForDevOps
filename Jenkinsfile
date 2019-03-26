@@ -25,13 +25,13 @@ pipeline
             steps{
                 dir('WebApp')
                 {
-                    sh 'sudo docker image build -t my-angular-app .'
+                    sh 'docker image build -t my-angular-app .'
                 }
             }
             post{
                 always{
-                sh 'sudo docker image ls'
-                sh 'sudo docker run 3000:80 --rm my-angular-app'
+                sh 'docker image ls'
+                sh 'docker run 3000:80 --rm my-angular-app'
                 }
             }
 
