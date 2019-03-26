@@ -28,8 +28,10 @@ pipeline
                 }
             }
             post{
+                always{
                 sh 'docker image ls'
                 sh 'docker run 3000:80 --rm my-angular-app'
+                }
             }
 
         }
