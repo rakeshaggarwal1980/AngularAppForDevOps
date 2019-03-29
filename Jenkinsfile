@@ -31,7 +31,7 @@ pipeline
             post{
                 always{
                 sh 'docker image ls'
-                sh 'docker run -p 3001:80 --rm my-angular-app'
+                sh 'docker run -p 80 --rm my-angular-app'
                 }
             }
 
